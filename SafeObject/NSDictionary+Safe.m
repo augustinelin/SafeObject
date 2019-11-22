@@ -18,9 +18,9 @@
     NSUInteger rightCount = 0;
     for (NSUInteger i = 0; i < count; i++) {
         if (!(keys[i] && objects[i])) {
-            break;
-        }else{
-            rightCount++;
+            if (!objects[i]) {
+                objects[i] = [NSNull null];
+            }
         }
     }
     self = [self initWithObjects_st:objects forKeys:keys count:rightCount];
